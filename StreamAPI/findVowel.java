@@ -1,0 +1,21 @@
+package StreamAPI;
+
+public class findVowel {
+    public static void main(String[] args) {
+        String str = "Hello worlds";
+        String vowel = "aeiou";
+        long countTheVowel =  str.chars()
+                .filter(e->vowel.indexOf(e) !=-1)
+                .count();
+        System.out.println(countTheVowel);
+        // output : 3
+
+        int count = 0;
+        for (char c : str.toCharArray() ) {
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ){
+                count ++;
+            }
+        }
+        System.out.println("Number of vowels in the string: " + count);
+    }
+}
