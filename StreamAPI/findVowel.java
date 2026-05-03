@@ -16,6 +16,16 @@ public class findVowel {
                 count ++;
             }
         }
+
+        //optimize way
+        for(char c: str.toLowerCase().toCharArray()){
+            if(vowel.indexOf(c) != -1){
+                count++;
+            }
+        }
         System.out.println("Number of vowels in the string: " + count);
+
+
+
     }
 }
