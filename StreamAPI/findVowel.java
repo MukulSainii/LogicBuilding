@@ -1,5 +1,7 @@
 package StreamAPI;
 
+import java.util.Set;
+
 public class findVowel {
     public static void main(String[] args) {
         String str = "Hello worlds";
@@ -7,6 +9,10 @@ public class findVowel {
         long countTheVowel =  str.chars()
                 .filter(e->vowel.indexOf(e) !=-1)
                 .count();
+
+        long countTheVowel1 =  str.chars()
+                                .filter(c -> Set.of('a','e','i','o','u').contains((char)c))
+                                .count();
         System.out.println(countTheVowel);
         // output : 3
 
@@ -24,8 +30,5 @@ public class findVowel {
             }
         }
         System.out.println("Number of vowels in the string: " + count);
-
-
-
     }
 }
