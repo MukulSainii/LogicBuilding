@@ -15,6 +15,7 @@ public class sortingAndRemoveDuplicate {
         for(int element: sortedArr){
             System.out.println("element : "+element);
         }
+
         System.out.println("after removing duplicate element:\n");
         int[] uniqueArr = removeDuplicate(sortedArr);
         for(int element: uniqueArr){
@@ -26,8 +27,6 @@ public class sortingAndRemoveDuplicate {
                 .distinct()
                 .sorted()
                 .forEach(System.out::println);
-
-
     }
     public static int[] sorting(int[] arr){
         for(int i=0; i<arr.length; i++){
@@ -49,7 +48,8 @@ public class sortingAndRemoveDuplicate {
                 temp[j++] = arr[i];
             }
         }
-        temp[j++] = arr[arr.length-1]; //adding last element.
-        return temp;
+        int lastElement = arr[arr.length-1];
+        temp[j] = lastElement; //adding last element.
+        return Arrays.copyOf(temp,j+1);// use copy to avoid store garbage value in the array.
     }
 }
