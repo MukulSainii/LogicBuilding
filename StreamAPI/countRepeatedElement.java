@@ -11,8 +11,8 @@ public class countRepeatedElement {
         for (int j : arr) {
             element.put(j, element.getOrDefault(j, 0) + 1);
         }
-        element.forEach((key, value)->
-                System.out.println("element : "+key + " count : "+value));
+//        element.forEach((key, value)->
+//                System.out.println("element : "+key + " count : "+value));
 
         //count occurrence of each character in a string
         String str = "hello mukul , how are you doing today?";
@@ -24,9 +24,16 @@ public class countRepeatedElement {
                 result.put(c, result.getOrDefault(c, 0) + 1);
             }
         }
-        result.forEach((key, value)->
-                System.out.println("char: "+key+", count: "+ value));
-
-
+//        result.forEach((key, value)->
+//                System.out.println("char: "+key+", count: "+ value));
+        // doing same with the stream api
+        Map<Character, Long> output =  str.chars()
+                .filter(Character::isLetter)
+                .mapToObj(c->(char)c)
+                .collect(Collectors.groupingBy(
+                        c -> c,
+                        Collectors.counting()
+                ));
+        System.out.println(output);
     }
 }
